@@ -1,0 +1,106 @@
+//old code for resumeBuilder
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+
+$("#header").append(formattedName);
+
+var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+
+$("#header").append(formattedRole);
+
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+
+var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+
+var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
+
+var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
+
+var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+var formattedBiopic = HTMLbioPic.replace("%data%",bio.bioPic);
+
+$("#header").append(formattedBiopic);
+$("#header").append(formattedMobile);
+$("#header").append(formattedEmail);
+$("#header").append(formattedGithub);
+$("#header").append(formattedLocation);
+$("#header").append(formattedWelcome);
+
+
+var workCurrentEmployer = HTMLworkEmployer.replace("%data%",work.employer);
+var formattedWorkCurrentEmployer = workCurrentEmployer.replace("#","http://www.lbccars.com/");
+var formattedWorkPossition = HTMLworkTitle.replace("%data%",work.currentPossition);
+var formattedWorkYearsWorked = HTMLworkDates.replace("%data%",work.yearsWorked)
+var formattedWorkDescription = HTMLworkDescription.replace("%data%",work.description)
+
+var HTMLworkStart = '<div class="work-entry"></div>';
+var HTMLworkEmployer = '<a href="#">%data%';
+var HTMLworkTitle = ' - %data%</a>';
+var HTMLworkDates = '<div class="date-text">%data%</div>';
+var HTMLworkLocation = '<div class="location-text">%data%</div>';
+var HTMLworkDescription = '<p><br>%data%</p>';
+
+
+
+$("#main").append(internationalizeButton);
+function inName(name){
+
+      var inNameArray = bio.name.split(" ");
+      inNameArray[2] = inNameArray[2].toUpperCase();
+      var newName = inNameArray[0]+" "+inNameArray[1]+" "+ inNameArray[2];
+      return newName;
+
+};
+
+
+education.display = function() {
+    var formals = education.schools;
+
+    var onlines = education.onlineCourses;
+
+    var name, degree, dates, location, major, title, school, url;
+
+    formals.forEach(addFormalSchool);
+
+    $('#education').append(HTMLonlineClasses);
+
+    onlines.forEach(addOnlineCourse);
+
+
+    function addFormalSchool(school) {
+        name = HTMLschoolName.replace('%data%', school.name);
+        degree = HTMLschoolDegree.replace('%data%', school.degree);
+        dates = HTMLschoolDates.replace('%data%', school.dates);
+        location = HTMLschoolLocation.replace('%data%', school.location);
+        major = HTMLschoolMajor.replace('%data%', school.majors);
+
+        $('#education').append(HTMLschoolStart);
+
+        $('.education-entry:last').append(name + degree);
+
+        $('.education-entry:last').append(dates);
+        $('.education-entry:last').append(location);
+
+        $('.education-entry:last').append(major);
+    }
+
+
+    function addOnlineCourse(course) {
+        title = HTMLonlineTitle.replace('%data%', course.title);
+        school = HTMLonlineSchool.replace('%data%', course.school);
+        dates = HTMLonlineDates.replace('%data%', course.dates);
+        url = HTMLonlineURL.replace('%data%', course.url);
+
+        $('#education').append(HTMLschoolStart);
+
+        $('.education-entry:last').append(title + school);
+
+        $('.education-entry:last').append(dates);
+
+        $('.education-entry:last').append(url);
+    }
+}
+
+
