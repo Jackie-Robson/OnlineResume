@@ -35,7 +35,7 @@ var bio = {
         $("#topContacts,#footerContacts").append(formattedEmail);
         $("#topContacts,#footerContacts").append(formattedGithub);
         $("#topContacts,#footerContacts").append(formattedLocation);
-        $("#topContacts,").append(formattedWelcome);
+        $("#topContacts").append(formattedWelcome);
         $("#header").append(HTMLskillsStart);
         bio.skills.forEach(function(skill) {
             var formattedSkill = HTMLskills.replace("%data%", [skill]);
