@@ -1,8 +1,18 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
 var bio = {
     "name": "Jackie Anne Robson",
     "role": "Junior Web Developer",
     "contacts": {
-        "mobile": 07984090124,
+        "mobile": "07984090124",
         "email": "jackie.anne.robson@gmail.com",
         "github": "Jackie-Robson",
         "location": "Canterbury",
@@ -19,25 +29,23 @@ var bio = {
         var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
         var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
         var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
-        $("#header").append(formattedRole);
-        $("#header").append(HTMLheaderName.replace("%data%", bio.name));
-        $("#header").append(formattedBiopic);
-        $("#header").append(formattedMobile);
-        $("#header").append(formattedEmail);
-        $("#header").append(formattedGithub);
-        $("#header").append(formattedLocation);
-        $("#header").append(formattedWelcome);
+        $("#header").prepend(formattedName + formattedRole);
+        $("#header").prepend(formattedBiopic);
+        $("#topContacts,#footerContacts").append(formattedMobile);
+        $("#topContacts,#footerContacts").append(formattedEmail);
+        $("#topContacts,#footerContacts").append(formattedGithub);
+        $("#topContacts,#footerContacts").append(formattedLocation);
+        $("#topContacts,").append(formattedWelcome);
         $("#header").append(HTMLskillsStart);
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-        $("#skills").prepend(formattedSkill);
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-        $("#skills").append(formattedSkill);
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-        $("#skills").append(formattedSkill);
-    }
-}
+        bio.skills.forEach(function(skill) {
+            var formattedSkill = HTMLskills.replace("%data%", [skill]);
+            $("#skills").prepend(formattedSkill);
+        });
 
-bio.display()
+    }
+};
+
+bio.display();
 
 
 var education = {
@@ -83,7 +91,7 @@ education.display = function() {
         var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
         var formattedSchoolMajors = HTMLschoolMajor.replace("%data%", school.majors);
         var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
-        var formattedSchoolUrl = HTMLschoolName.replace("#", school.name)
+        var formattedSchoolUrl = HTMLschoolName.replace("#", school.name);
         var formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
         $(".education-entry:last").append(formattedSchoolName);
         $(".education-entry:last").append(formattedSchoolDegree);
@@ -108,7 +116,7 @@ education.display = function() {
     });
 };
 
-education.display()
+education.display();
 
 var work = {
     "jobs": [{
@@ -133,30 +141,29 @@ work.display = function() {
         var formattedWorkDescription = HTMLworkDescription.replace("%data%", job.description);
         var formattedWorkLocation = HTMLworkLocation.replace("%data%", job.location);
         $(".work-entry:last").append(formattedTitle);
-        $(".work-entry:last").append(formattedEmployer)
+        $(".work-entry:last").append(formattedEmployer);
         $(".work-entry:last").append(formattedWorkDates);
         $(".work-entry:last").append(formattedWorkDescription);
         $(".work-entry:last").append(formattedWorkLocation);
-    })
+    });
 };
-work.display()
+work.display();
 
 var projects = {
-    projects: [
-        project1 = {
+    projects: [{
             "start": HTMLprojectStart,
             "name": "sample 1",
             "dates": "may 26th - june 30th",
             "description": "blah blah blah blah",
-            "image": ["images/samp1.png"]
+            "images": ["images/samp1.png"]
 
         },
-        project2 = {
+        {
             "start": HTMLprojectStart,
             "name": "sample 2",
             "dates": "may 26th - june 30th",
             "description": "blah blah blah blah",
-            "image": ["images/samp2.png", "images/samp1.png"]
+            "images": ["images/samp2.png", "images/samp1.png"]
 
         }
     ],
@@ -166,13 +173,13 @@ var projects = {
 
 projects.display = function() {
     projects.projects.forEach(function(project) {
-        $("#projects").append(HTMLprojectStart)
+        $("#projects").append(HTMLprojectStart);
 
         var formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.name);
         var formattedPojectDates = HTMLprojectDates.replace("%data%", project.dates);
         var formattedProjectDescription = HTMLprojectDescription.replace("%data%", project.description);
 
-        project.image.forEach(function(image) {
+        project.images.forEach(function(image) {
             var formattedProjectImage = HTMLprojectImage.replace("%data%", image);
             $(".project-entry:last").append(formattedProjectImage);
         });
@@ -184,7 +191,7 @@ projects.display = function() {
     });
 };
 
-projects.display()
+projects.display();
 
 
 $("#mapDiv").append(googleMap);
@@ -196,4 +203,4 @@ function inName(name) {
     inNameArray[2] = inNameArray[2].toUpperCase();
     var newName = inNameArray[0] + " " + inNameArray[1] + " " + inNameArray[2];
     return newName;
-};
+}
