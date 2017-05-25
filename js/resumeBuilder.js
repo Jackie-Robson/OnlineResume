@@ -122,13 +122,20 @@ var work = {
     "jobs": [{
         "employer": "LBC Downtown",
         "title": "Assistant Manager",
-        "location": "London",
-        "dates": "in Progress ",
+        "location": "Bellingham London",
+        "dates": "2009-2017",
         "description": "I have worked at LBC Downtown since I was 18 years old." +
             " I started out answering the phones and taking mini cab bookings and as i got to " +
             "know the company better i eventualy rose to the possition of manager" +
             ", which i have been at for the last 4 years."
-    }]
+    },{
+    "employer": "Code and Wander",
+  "title": "Front-end Intern",
+  "location": "Southwark London",
+  "dates": "in Progress ",
+  "description": "I started as an intern at this award winning digital agencey towards the end of my udacity nano degree program." +
+      "The first project i was involved with wad creating Email templates for the FDP german political party, which I created using Mailjets MJML framework." }
+]
 
 };
 

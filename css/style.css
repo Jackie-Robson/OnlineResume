@@ -22,11 +22,16 @@ h6 {
 .work-entry,
 .project-entry {
   padding: 0 5%;
+  padding-top: 10px;
+}
+
+img{
+  max-width: 100%;
 }
 
 h1 {
   font-size: 40px;
-  color: #2ec0f9;
+  color: #2364AA;
   line-height: 48px;
   display: inline;
 }
@@ -34,7 +39,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #9191e9;
+  color: #2364AA;
   line-height: 29px;
   padding: 10px;
 }
@@ -95,12 +100,16 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #b95f89;
+  color: #FEC601;
   line-height: 28px;
 }
 
+#skills{
+  display: inline-block;
+}
+
 #skills-h3 {
-  color: #2ec0f9;
+  color: #FEC601;
   display: none;
 }
 
@@ -109,12 +118,12 @@ a {
 }
 
 .orange-text {
-  color: #2ec0f9;
+  color: #FEC601;
 }
 
 .white-text {
-  font-weight: bold;
-  color: #c4e0f9;
+
+  color: #Fff;
 }
 
 .gray {
@@ -129,7 +138,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #999;
+  background-color: #3DA5D9 ;
 }
 
 .flex-box {
@@ -161,6 +170,7 @@ ul {
   padding: 10px;
   max-width: 200px;
   display: none;
+  border-radius: 100%;
 }
 
 img {
@@ -169,6 +179,8 @@ img {
 
 span {
   padding: 5px;
+  color: inherit;
+  display: inline-block;
 }
 
 #lets-connect {
